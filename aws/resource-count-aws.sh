@@ -357,7 +357,7 @@ assume_role() {
   if [ "${ACCOUNT_ID}" = "${MASTER_ACCOUNT_ID}" ]; then
     echo "  Account is the master account, skipping assume role ..."
   else
-    ACCOUNT_ASSUME_ROLE_ARN="arn:aws:iam::${ACCOUNT_ID}:role/OrganizationAccountAccessRole"
+    ACCOUNT_ASSUME_ROLE_ARN="arn:aws:iam::${ACCOUNT_ID}:role/administrative-read-only"
     SESSION_JSON=$(aws_sts_assume_role "${ACCOUNT_ASSUME_ROLE_ARN}")
     if [ $? -ne 0 ] || [ -z "${SESSION_JSON}" ]; then
       ASSUME_ROLE_ERROR="true"
